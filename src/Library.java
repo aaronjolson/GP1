@@ -54,6 +54,11 @@ public class Library implements Serializable {
       return library;
     }
   }
+
+  public Iterator getAllBooks(){
+    return catalog.getBooks();
+  }
+
   /**
    * Organizes the operations for adding a book
    * @param title book title
@@ -133,7 +138,7 @@ public class Library implements Serializable {
     return (hold.getMember());
   }
   /**
-   * Removes a hold for a specific book and member combincation
+   * Removes a hold for a specific book and member combination
    * @param memberId id of the member
    * @param bookId book id
    * @return result of the operation 

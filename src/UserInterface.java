@@ -52,7 +52,7 @@ public class UserInterface {
    * a singleton Library object.
    */
   private UserInterface() {
-    if (yesOrNo("Look for saved data and  use it?")) {
+    if (yesOrNo("Look for saved data and use it?")) {
       retrieve();
     } else {
       library = Library.instance();
@@ -204,7 +204,15 @@ public class UserInterface {
    */
   public void addBooks() {
     Book result;
+    Iterator someBooks;
     do {
+      someBooks = library.getAllBooks();
+      while(someBooks.hasNext()) {
+        Object element = someBooks.next();
+        System.out.println(element);
+      }
+
+      System.out.println(someBooks);
       String title = getToken("Enter  title");
       String bookID = getToken("Enter id");
       String author = getToken("Enter author");
@@ -314,7 +322,10 @@ public class UserInterface {
    */
   public void removeBooks() {
     int result;
+    Iterator someBooks;
     do {
+      someBooks = library.getAllBooks();
+      System.out.println(someBooks);
       String bookID = getToken("Enter book id");
       result = library.removeBook(bookID);
       switch(result){

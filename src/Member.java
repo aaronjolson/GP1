@@ -191,7 +191,7 @@ public class Member implements Serializable {
   */
  @Override
   public String toString() {
-    String string = "Member name " + name + " address " + address + " id " + id + "phone " + phone;
+    String string = "Member name " + name + " address " + address + " id " + id + " phone " + phone;
     string += " borrowed: [";
     for (Iterator iterator = booksBorrowed.iterator(); iterator.hasNext(); ) {
       Book book = (Book) iterator.next();
