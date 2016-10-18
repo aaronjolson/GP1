@@ -2,10 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9971a3d9-89f6-4814-95da-9142d9daa603" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/Library.class" afterPath="$PROJECT_DIR$/bin/Library.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/Member.class" afterPath="$PROJECT_DIR$/bin/Member.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/MemberList.class" afterPath="$PROJECT_DIR$/bin/MemberList.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/UserInterface.class" afterPath="$PROJECT_DIR$/bin/UserInterface.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Library.java" afterPath="$PROJECT_DIR$/src/Library.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Member.java" afterPath="$PROJECT_DIR$/src/Member.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/MemberList.java" afterPath="$PROJECT_DIR$/src/MemberList.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/UserInterface.java" afterPath="$PROJECT_DIR$/src/UserInterface.java" />
     </list>
     <ignored path="Class Project 1.iws" />
@@ -31,13 +32,13 @@
       <file leaf-file-name="UserInterface.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/UserInterface.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="688">
-              <caret line="236" column="33" selection-start-line="236" selection-start-column="33" selection-end-line="236" selection-end-column="33" />
+            <state relative-caret-position="193">
+              <caret line="206" column="22" selection-start-line="206" selection-start-column="22" selection-end-line="206" selection-end-column="22" />
               <folding>
                 <element signature="n#!!doc" expanded="true" />
                 <element signature="imports" expanded="true" />
-                <element signature="e#16774#16775#0" expanded="true" />
-                <element signature="e#16818#16819#0" expanded="true" />
+                <element signature="e#16770#16771#0" expanded="true" />
+                <element signature="e#16814#16815#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -812,7 +813,7 @@
       <workItem from="1476415515148" duration="352000" />
       <workItem from="1476743773802" duration="2532000" />
       <workItem from="1476746486662" duration="1361000" />
-      <workItem from="1476747931849" duration="1333000" />
+      <workItem from="1476747931849" duration="1451000" />
     </task>
     <task id="LOCAL-00001" summary="Merge branch 'master' of https://github.com/aaronjolson/GP1&#10;&#10;# Please enter a commit message to explain why this merge is necessary,&#10;# especially if it merges an updated upstream into a topic branch.&#10;#&#10;# Lines starting with '#' will be ignored, and an empty message aborts&#10;# the commit.&#10;">
       <created>1476415383131</created>
@@ -835,11 +836,18 @@
       <option name="project" value="LOCAL" />
       <updated>1476747820423</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Created a way to print out all the members at the start of issue books.&#10;">
+      <created>1476749329838</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1476749329838</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="13150000" />
+    <option name="totallyTimeSpent" value="13268000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="301" y="23" width="1501" height="994" extended-state="0" />
@@ -917,7 +925,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Merge branch 'master' of https://github.com/aaronjolson/GP1&#10;&#10;# Please enter a commit message to explain why this merge is necessary,&#10;# especially if it merges an updated upstream into a topic branch.&#10;#&#10;# Lines starting with '#' will be ignored, and an empty message aborts&#10;# the commit.&#10;" />
     <MESSAGE value="fixed a couple of typos and created a way to print out the list of books to the terminal.&#10;" />
-    <option name="LAST_COMMIT_MESSAGE" value="fixed a couple of typos and created a way to print out the list of books to the terminal.&#10;" />
+    <MESSAGE value="Created a way to print out all the members at the start of issue books.&#10;" />
+    <option name="LAST_COMMIT_MESSAGE" value="Created a way to print out all the members at the start of issue books.&#10;" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -935,8 +944,8 @@
           <folding>
             <element signature="n#!!doc" expanded="true" />
             <element signature="imports" expanded="true" />
-            <element signature="e#16774#16775#0" expanded="true" />
-            <element signature="e#16818#16819#0" expanded="true" />
+            <element signature="e#16770#16771#0" expanded="true" />
+            <element signature="e#16814#16815#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1039,8 +1048,8 @@
           <folding>
             <element signature="n#!!doc" expanded="true" />
             <element signature="imports" expanded="true" />
-            <element signature="e#16774#16775#0" expanded="true" />
-            <element signature="e#16818#16819#0" expanded="true" />
+            <element signature="e#16770#16771#0" expanded="true" />
+            <element signature="e#16814#16815#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1129,8 +1138,8 @@
           <folding>
             <element signature="n#!!doc" expanded="true" />
             <element signature="imports" expanded="true" />
-            <element signature="e#16774#16775#0" expanded="true" />
-            <element signature="e#16818#16819#0" expanded="true" />
+            <element signature="e#16770#16771#0" expanded="true" />
+            <element signature="e#16814#16815#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1216,8 +1225,8 @@
           <folding>
             <element signature="n#!!doc" expanded="true" />
             <element signature="imports" expanded="true" />
-            <element signature="e#16774#16775#0" expanded="true" />
-            <element signature="e#16818#16819#0" expanded="true" />
+            <element signature="e#16770#16771#0" expanded="true" />
+            <element signature="e#16814#16815#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1472,13 +1481,13 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/UserInterface.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="688">
-          <caret line="236" column="33" selection-start-line="236" selection-start-column="33" selection-end-line="236" selection-end-column="33" />
+        <state relative-caret-position="193">
+          <caret line="206" column="22" selection-start-line="206" selection-start-column="22" selection-end-line="206" selection-end-column="22" />
           <folding>
             <element signature="n#!!doc" expanded="true" />
             <element signature="imports" expanded="true" />
-            <element signature="e#16774#16775#0" expanded="true" />
-            <element signature="e#16818#16819#0" expanded="true" />
+            <element signature="e#16770#16771#0" expanded="true" />
+            <element signature="e#16814#16815#0" expanded="true" />
           </folding>
         </state>
       </provider>

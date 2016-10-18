@@ -204,11 +204,11 @@ public class UserInterface {
    */
   public void addBooks() {
     Book result;
-    Iterator someBooks;
+    Iterator allBooks;
     do {
-      someBooks = library.getAllBooks();
-      while(someBooks.hasNext()) {
-        Object element = someBooks.next();
+      allBooks = library.getAllBooks();
+      while(allBooks.hasNext()) {
+        Object element = allBooks.next();
         System.out.println(element);
       }
       String title = getToken("Enter  title");
