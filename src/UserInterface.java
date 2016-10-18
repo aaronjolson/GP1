@@ -264,6 +264,11 @@ public class UserInterface {
    */
   public void renewBooks() {
     Book result;
+    Iterator allMembers = library.getAllMembers();
+    while(allMembers.hasNext()) {
+      Object element = allMembers.next();
+      System.out.println(element);
+    }
     String memberID = getToken("Enter member id");
     if (library.searchMembership(memberID) == null) {
       System.out.println("No such member");
@@ -325,11 +330,14 @@ public class UserInterface {
    */
   public void removeBooks() {
     int result;
-    Iterator someBooks;
+    Iterator allBooks;
     do {
-      someBooks = library.getAllBooks();
-      System.out.println(someBooks);
-      String bookID = getToken("Enter book id");
+      allBooks = library.getAllBooks();
+      while(allBooks.hasNext()) {
+        Object element = allBooks.next();
+        System.out.println(element);
+      }
+      String bookID = getToken("Enter id");
       result = library.removeBook(bookID);
       switch(result){
         case Library.BOOK_NOT_FOUND:
@@ -362,7 +370,16 @@ public class UserInterface {
    *
    */
   public void placeHold() {
-    String memberID = getToken("Enter member id");
+	    Iterator allMembers = library.getAllMembers();
+	    while(allMembers.hasNext()) {
+	      Object element = allMembers.next();
+	      System.out.println(element);
+	    }
+	    String memberID = getToken("Enter member id");
+	    if (library.searchMembership(memberID) == null) {
+	      System.out.println("No such member");
+	      return;
+	    }
     String bookID = getToken("Enter book id");
     int duration = getNumber("Enter duration of hold");
     int result = library.placeHold(memberID, bookID, duration);
@@ -436,7 +453,16 @@ public class UserInterface {
    */
   public void getTransactions() {
     Iterator result;
+    Iterator allMembers = library.getAllMembers();
+    while(allMembers.hasNext()) {
+      Object element = allMembers.next();
+      System.out.println(element);
+    }
     String memberID = getToken("Enter member id");
+    if (library.searchMembership(memberID) == null) {
+      System.out.println("No such member");
+      return;
+    }
     Calendar date  = getDate("Please enter the date for which you want records as mm/dd/yy");
     result = library.getTransactions(memberID,date);
     if (result == null) {
