@@ -47,6 +47,10 @@ public class MemberList implements Serializable {
     }
   }
 
+  public Iterator getMembers() {
+      return members.iterator();
+  }
+
 //  public Iterator getMembers()
   /**
    * Checks whether a member with a given member id exists.

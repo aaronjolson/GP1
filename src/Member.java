@@ -25,7 +25,7 @@ public class Member implements Serializable {
   private String address;
   private String phone;
   private String id;
-  private static final String MEMBER_STRING = "M";
+  private static final String MEMBER_STRING = "";
   private List booksBorrowed = new LinkedList();
   private List booksOnHold = new LinkedList();
   private List transactions = new LinkedList();
@@ -114,7 +114,7 @@ public class Member implements Serializable {
     return false;
   }
   /**
-   * Gets an iterator to a collection of selected ransactions
+   * Gets an iterator to a collection of selected transactions
    * @param date the date for which the transactions have to be retrieved
    * @return the iterator to the collection
    */
@@ -165,14 +165,14 @@ public class Member implements Serializable {
   }
   /**
    * Setter for address
-   * @param newName member's new address
+   * @param newAddress member's new address
    */
   public void setAddress(String newAddress) {
     address = newAddress;
   }
   /**
    * Setter for phone
-   * @param newName member's new phone
+   * @param newPhone member's new phone
    */
   public void setPhone(String newPhone) {
     phone = newPhone;

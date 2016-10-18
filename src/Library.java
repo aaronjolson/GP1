@@ -59,6 +59,10 @@ public class Library implements Serializable {
     return catalog.getBooks();
   }
 
+    public Iterator getAllMembers(){
+        return memberList.getMembers();
+    }
+
   /**
    * Organizes the operations for adding a book
    * @param title book title
