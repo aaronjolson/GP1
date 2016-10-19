@@ -26,7 +26,7 @@ import java.io.*;
  */
 public class MemberList implements Serializable {
   private static final long serialVersionUID = 1L;
-  private List members = new LinkedList();
+  public List<Member> members = new LinkedList();
   private static MemberList memberList;
   /*
    * Private constructor for singleton pattern

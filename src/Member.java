@@ -21,7 +21,7 @@ import java.util.*;
 import java.io.*;
 public class Member implements Serializable {
   private static final long serialVersionUID = 1L;
-  private String name;
+  public String name;
   private String address;
   private String phone;
   private String id;

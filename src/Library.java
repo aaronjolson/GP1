@@ -31,7 +31,7 @@ public class Library implements Serializable {
   public static final int OPERATION_FAILED= 8;
   public static final int NO_SUCH_MEMBER = 9;
   private Catalog catalog;
-  private MemberList memberList;
+  public MemberList memberList;
   private static Library library;
   /**
    * Private for the singleton pattern
