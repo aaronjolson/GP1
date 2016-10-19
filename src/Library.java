@@ -235,6 +235,7 @@ public class Library implements Serializable {
    */
   public int removeBook(String bookId) {
     Book book = catalog.search(bookId);
+    
     if (book == null) {
       return(BOOK_NOT_FOUND);
     }

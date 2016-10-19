@@ -254,6 +254,7 @@ public class UserInterface {
       if (!yesOrNo("Issue more books?")) {
         break;
       }
+      
     } while (true);
   }
   /**
@@ -338,6 +339,7 @@ public class UserInterface {
         System.out.println(element);
       }
       String bookID = getToken("Enter id");
+
       result = library.removeBook(bookID);
       switch(result){
         case Library.BOOK_NOT_FOUND:
@@ -361,7 +363,7 @@ public class UserInterface {
       if (!yesOrNo("Remove more books?")) {
         break;
       }
-    } while (true);
+    } while (!(result==-1));
   }
   /**
    * Method to be called for placing a hold.
@@ -380,6 +382,7 @@ public class UserInterface {
 	      System.out.println("No such member");
 	      return;
 	    }
+	    
     String bookID = getToken("Enter book id");
     int duration = getNumber("Enter duration of hold");
     int result = library.placeHold(memberID, bookID, duration);
