@@ -238,8 +238,10 @@ public class UserInterface {
       Object element = allMembers.next();
       System.out.println(element);
     }
-    String memberID = getToken("Enter member id");
-    if (library.searchMembership(memberID) == null) {
+    String memberID = getToken("Enter member id, or -1 to quit");
+    if (memberID.equals("-1")){
+      return;
+    }else if (library.searchMembership(memberID) == null) {
       System.out.println("No such member");
       return;
     }
