@@ -365,7 +365,7 @@ public class UserInterface {
       if (!yesOrNo("Remove more books?")) {
         break;
       }
-    } while (!(result==-1));
+    } while (true);
   }
   /**
    * Method to be called for placing a hold.
