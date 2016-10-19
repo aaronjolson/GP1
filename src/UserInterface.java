@@ -233,10 +233,8 @@ public class UserInterface {
    */
   public void issueBooks() {
     Book result;
-    Iterator allMembers = library.getAllMembers();
-    while(allMembers.hasNext()) {
-      Object element = allMembers.next();
-      System.out.println(element);
+    for (Member member: library.memberList.members ){
+      System.out.println(member.name);
     }
     String memberID = getToken("Enter member id, or -1 to quit");
     if (memberID.equals("-1")){
