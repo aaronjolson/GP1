@@ -2,12 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9971a3d9-89f6-4814-95da-9142d9daa603" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/UserInterface.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/LibraryData" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/Hold.class" afterPath="$PROJECT_DIR$/bin/Hold.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/Library.class" afterPath="$PROJECT_DIR$/bin/Library.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/LibraryData" afterPath="$PROJECT_DIR$/LibraryData" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/UserInterface.java" afterPath="$PROJECT_DIR$/src/UserInterface.java" />
     </list>
     <ignored path="Class Project 1.iws" />
@@ -33,13 +28,13 @@
       <file leaf-file-name="UserInterface.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/UserInterface.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="330">
-              <caret line="450" column="63" selection-start-line="450" selection-start-column="63" selection-end-line="450" selection-end-column="63" />
+            <state relative-caret-position="240">
+              <caret line="381" column="7" selection-start-line="381" selection-start-column="7" selection-end-line="381" selection-end-column="7" />
               <folding>
                 <element signature="n#!!doc" expanded="true" />
                 <element signature="imports" expanded="true" />
-                <element signature="e#19762#19763#0" expanded="true" />
-                <element signature="e#19806#19807#0" expanded="true" />
+                <element signature="e#19827#19828#0" expanded="true" />
+                <element signature="e#19871#19872#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -907,7 +902,7 @@
       <workItem from="1476743773802" duration="2532000" />
       <workItem from="1476746486662" duration="1361000" />
       <workItem from="1476747931849" duration="3419000" />
-      <workItem from="1477001032676" duration="4287000" />
+      <workItem from="1477001032676" duration="4414000" />
     </task>
     <task id="LOCAL-00001" summary="Merge branch 'master' of https://github.com/aaronjolson/GP1&#10;&#10;# Please enter a commit message to explain why this merge is necessary,&#10;# especially if it merges an updated upstream into a topic branch.&#10;#&#10;# Lines starting with '#' will be ignored, and an empty message aborts&#10;# the commit.&#10;">
       <created>1476415383131</created>
@@ -965,15 +960,22 @@
       <option name="project" value="LOCAL" />
       <updated>1477004580450</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="work on place hold and updates to Library test data">
+      <created>1477006266948</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1477006266948</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="19523000" />
+    <option name="totallyTimeSpent" value="19650000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1440" height="873" extended-state="6" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="PlantUML" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -983,7 +985,7 @@
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.329602" sideWeight="0.50277776" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3802817" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3802817" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3277849" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.23943663" sideWeight="0.49722221" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -1052,7 +1054,8 @@
     <MESSAGE value="bring library and UI back to previous state" />
     <MESSAGE value="code clean up" />
     <MESSAGE value="work on place hold" />
-    <option name="LAST_COMMIT_MESSAGE" value="work on place hold" />
+    <MESSAGE value="work on place hold and updates to Library test data" />
+    <option name="LAST_COMMIT_MESSAGE" value="work on place hold and updates to Library test data" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1072,8 +1075,8 @@
           <folding>
             <element signature="n#!!doc" expanded="true" />
             <element signature="imports" expanded="true" />
-            <element signature="e#19762#19763#0" expanded="true" />
-            <element signature="e#19806#19807#0" expanded="true" />
+            <element signature="e#19827#19828#0" expanded="true" />
+            <element signature="e#19871#19872#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1134,8 +1137,8 @@
           <folding>
             <element signature="n#!!doc" expanded="true" />
             <element signature="imports" expanded="true" />
-            <element signature="e#19762#19763#0" expanded="true" />
-            <element signature="e#19806#19807#0" expanded="true" />
+            <element signature="e#19827#19828#0" expanded="true" />
+            <element signature="e#19871#19872#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1217,8 +1220,8 @@
           <folding>
             <element signature="n#!!doc" expanded="true" />
             <element signature="imports" expanded="true" />
-            <element signature="e#19762#19763#0" expanded="true" />
-            <element signature="e#19806#19807#0" expanded="true" />
+            <element signature="e#19827#19828#0" expanded="true" />
+            <element signature="e#19871#19872#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1287,8 +1290,8 @@
           <folding>
             <element signature="n#!!doc" expanded="true" />
             <element signature="imports" expanded="true" />
-            <element signature="e#19762#19763#0" expanded="true" />
-            <element signature="e#19806#19807#0" expanded="true" />
+            <element signature="e#19827#19828#0" expanded="true" />
+            <element signature="e#19871#19872#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1357,8 +1360,8 @@
           <folding>
             <element signature="n#!!doc" expanded="true" />
             <element signature="imports" expanded="true" />
-            <element signature="e#19762#19763#0" expanded="true" />
-            <element signature="e#19806#19807#0" expanded="true" />
+            <element signature="e#19827#19828#0" expanded="true" />
+            <element signature="e#19871#19872#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1571,13 +1574,13 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/UserInterface.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="450" column="63" selection-start-line="450" selection-start-column="63" selection-end-line="450" selection-end-column="63" />
+        <state relative-caret-position="240">
+          <caret line="381" column="7" selection-start-line="381" selection-start-column="7" selection-end-line="381" selection-end-column="7" />
           <folding>
             <element signature="n#!!doc" expanded="true" />
             <element signature="imports" expanded="true" />
-            <element signature="e#19762#19763#0" expanded="true" />
-            <element signature="e#19806#19807#0" expanded="true" />
+            <element signature="e#19827#19828#0" expanded="true" />
+            <element signature="e#19871#19872#0" expanded="true" />
           </folding>
         </state>
       </provider>

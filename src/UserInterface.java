@@ -377,6 +377,9 @@ public class UserInterface {
       }
       index = 1;
       String sequenceNumber = getToken("Enter book sequence number");
+      if (sequenceNumber.equals("-1")) {
+        return;
+      }
       String bookID = (String) bookMap.get(Integer.parseInt(sequenceNumber));
       result = library.removeBook(bookID);
       switch (result) {
