@@ -158,20 +158,6 @@ public class Library implements Serializable {
     }
     return member.removeHold(bookId) && book.removeHold(memberId)? OPERATION_COMPLETED: NO_HOLD_FOUND;
   }
-  /*
-   * Removes all out-of-date holds
-   */
-  private void removeInvalidHolds() {
-    for (Iterator catalogIterator = catalog.getBooks(); catalogIterator.hasNext(); ) {
-      for (Iterator iterator = ((Book) catalogIterator.next()).getHolds(); iterator.hasNext(); ) {
-        Hold hold = (Hold) iterator.next();
-        if (!hold.isValid()) {
-          hold.getBook().removeHold(hold.getMember().getId());
-          hold.getMember().removeHold(hold.getBook().getId());
-        }
-      }
-    }
-  }
   /**
    * Organizes the issuing of a book
    * @param memberId member id

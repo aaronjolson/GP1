@@ -236,6 +236,7 @@ public class UserInterface {
     Iterator allMembers = library.getAllMembers();
     while(allMembers.hasNext()) {
       Object element = allMembers.next();
+
       System.out.println(element);
     }
     String memberID = getToken("Enter member id, or -1 to quit");
@@ -340,8 +341,9 @@ public class UserInterface {
         Object element = allBooks.next();
         System.out.println(element);
       }
-      String bookID = getToken("Enter id");
-
+      String bookID = getToken("Enter id, or -1 to quit");
+      if (bookID.equals("-1"))
+    	  return;
       result = library.removeBook(bookID);
       switch(result){
         case Library.BOOK_NOT_FOUND:
