@@ -2,16 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9971a3d9-89f6-4814-95da-9142d9daa603" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/Book.class" afterPath="$PROJECT_DIR$/bin/Book.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/Catalog.class" afterPath="$PROJECT_DIR$/bin/Catalog.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/Hold.class" afterPath="$PROJECT_DIR$/bin/Hold.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/Member.class" afterPath="$PROJECT_DIR$/bin/Member.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/MemberIdServer.class" afterPath="$PROJECT_DIR$/bin/MemberIdServer.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/Transaction.class" afterPath="$PROJECT_DIR$/bin/Transaction.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/Library.class" afterPath="$PROJECT_DIR$/bin/Library.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/UserInterface.class" afterPath="$PROJECT_DIR$/bin/UserInterface.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Book.java" afterPath="$PROJECT_DIR$/src/Book.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Catalog.java" afterPath="$PROJECT_DIR$/src/Catalog.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Library.java" afterPath="$PROJECT_DIR$/src/Library.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/UserInterface.java" afterPath="$PROJECT_DIR$/src/UserInterface.java" />
     </list>
     <ignored path="Class Project 1.iws" />
@@ -37,8 +30,8 @@
       <file leaf-file-name="UserInterface.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/UserInterface.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="144">
-              <caret line="347" column="79" selection-start-line="347" selection-start-column="79" selection-end-line="347" selection-end-column="79" />
+            <state relative-caret-position="213">
+              <caret line="246" column="16" selection-start-line="246" selection-start-column="16" selection-end-line="246" selection-end-column="16" />
               <folding>
                 <element signature="n#!!doc" expanded="true" />
                 <element signature="imports" expanded="true" />
@@ -80,10 +73,12 @@
       <file leaf-file-name="Catalog.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Catalog.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="234">
-              <caret line="90" column="26" selection-start-line="90" selection-start-column="18" selection-end-line="90" selection-end-column="26" />
+            <state relative-caret-position="255">
+              <caret line="35" column="21" selection-start-line="35" selection-start-column="21" selection-end-line="35" selection-end-column="21" />
               <folding>
                 <element signature="imports" expanded="true" />
+                <element signature="e#2471#2472#0" expanded="true" />
+                <element signature="e#2504#2505#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -785,7 +780,7 @@
       <workItem from="1476746486662" duration="1361000" />
       <workItem from="1476747931849" duration="12631000" />
       <workItem from="1476911347896" duration="834000" />
-      <workItem from="1476984565159" duration="6672000" />
+      <workItem from="1476984565159" duration="8053000" />
     </task>
     <task id="LOCAL-00001" summary="Merge branch 'master' of https://github.com/aaronjolson/GP1&#10;&#10;# Please enter a commit message to explain why this merge is necessary,&#10;# especially if it merges an updated upstream into a topic branch.&#10;#&#10;# Lines starting with '#' will be ignored, and an empty message aborts&#10;# the commit.&#10;">
       <created>1476415383131</created>
@@ -843,11 +838,18 @@
       <option name="project" value="LOCAL" />
       <updated>1476988697810</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="wrote an implementation for remove books using book list filtering.">
+      <created>1476992416692</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1476992416692</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="31954000" />
+    <option name="totallyTimeSpent" value="33335000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -939,7 +941,8 @@
     <MESSAGE value="added logic to return to main options menu when the user enters -1 from the issueBooks loop." />
     <MESSAGE value="list changes" />
     <MESSAGE value="implementation for issueBooks" />
-    <option name="LAST_COMMIT_MESSAGE" value="implementation for issueBooks" />
+    <MESSAGE value="wrote an implementation for remove books using book list filtering." />
+    <option name="LAST_COMMIT_MESSAGE" value="wrote an implementation for remove books using book list filtering." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1009,6 +1012,8 @@
           <caret line="89" column="5" selection-start-line="89" selection-start-column="5" selection-end-line="89" selection-end-column="5" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#2471#2472#0" expanded="true" />
+            <element signature="e#2504#2505#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1087,6 +1092,8 @@
           <caret line="92" column="3" selection-start-line="92" selection-start-column="3" selection-end-line="92" selection-end-column="3" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#2471#2472#0" expanded="true" />
+            <element signature="e#2504#2505#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1178,6 +1185,8 @@
           <caret line="92" column="3" selection-start-line="92" selection-start-column="3" selection-end-line="92" selection-end-column="3" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#2471#2472#0" expanded="true" />
+            <element signature="e#2504#2505#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1341,6 +1350,8 @@
           <caret line="55" column="14" selection-start-line="55" selection-start-column="14" selection-end-line="55" selection-end-column="14" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#2471#2472#0" expanded="true" />
+            <element signature="e#2504#2505#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1475,24 +1486,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Catalog.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="234">
-          <caret line="90" column="26" selection-start-line="90" selection-start-column="18" selection-end-line="90" selection-end-column="26" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Book.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="30" column="22" selection-start-line="30" selection-start-column="22" selection-end-line="30" selection-end-column="22" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Library.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="210">
@@ -1507,10 +1500,30 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/Book.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="30" column="22" selection-start-line="30" selection-start-column="22" selection-end-line="30" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Catalog.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="35" column="21" selection-start-line="35" selection-start-column="21" selection-end-line="35" selection-end-column="21" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#2471#2472#0" expanded="true" />
+            <element signature="e#2504#2505#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/UserInterface.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="144">
-          <caret line="347" column="79" selection-start-line="347" selection-start-column="79" selection-end-line="347" selection-end-column="79" />
+        <state relative-caret-position="213">
+          <caret line="246" column="16" selection-start-line="246" selection-start-column="16" selection-end-line="246" selection-end-column="16" />
           <folding>
             <element signature="n#!!doc" expanded="true" />
             <element signature="imports" expanded="true" />

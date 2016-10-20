@@ -1,25 +1,26 @@
 /**
- *
  * @author Brahma Dathan and Sarnath Ramnath
  * @Copyright (c) 2010
-
+ * <p>
  * Redistribution and use with or without
  * modification, are permitted provided that the following conditions
  * are met:
- *
- *   - the use is for academic purpose only
- *   - Redistributions of source code must retain the above copyright
- *     notice, this list of conditions and the following disclaimer.
- *   - Neither the name of Brahma Dathan or Sarnath Ramnath
- *     may be used to endorse or promote products derived
- *     from this software without specific prior written permission.
- *
+ * <p>
+ * - the use is for academic purpose only
+ * - Redistributions of source code must retain the above copyright
+ * notice, this list of conditions and the following disclaimer.
+ * - Neither the name of Brahma Dathan or Sarnath Ramnath
+ * may be used to endorse or promote products derived
+ * from this software without specific prior written permission.
+ * <p>
  * The authors do not make any claims regarding the correctness of the code in this module
  * and are not responsible for any loss or damage resulting from its use.
  */
+
 import java.util.*;
 import java.text.*;
 import java.io.*;
+
 /**
  *
  * This class implements the user interface for the Library project.
@@ -46,6 +47,7 @@ public class UserInterface {
   private static final int SAVE = 11;
   private static final int RETRIEVE = 12;
   private static final int HELP = 13;
+
   /**
    * Made private for singleton pattern.
    * Conditionally looks for any saved data. Otherwise, it gets
@@ -58,6 +60,7 @@ public class UserInterface {
       library = Library.instance();
     }
   }
+
   /**
    * Supports the singleton pattern
    *
@@ -70,6 +73,7 @@ public class UserInterface {
       return userInterface;
     }
   }
+
   /**
    * Gets a token after prompting
    *
@@ -82,7 +86,7 @@ public class UserInterface {
       try {
         System.out.println(prompt);
         String line = reader.readLine();
-        StringTokenizer tokenizer = new StringTokenizer(line,"\n\r\f");
+        StringTokenizer tokenizer = new StringTokenizer(line, "\n\r\f");
         if (tokenizer.hasMoreTokens()) {
           return tokenizer.nextToken();
         }
@@ -91,6 +95,7 @@ public class UserInterface {
       }
     } while (true);
   }
+
   /**
    * Queries for a yes or no and returns true for yes and false for no
    *
@@ -105,6 +110,7 @@ public class UserInterface {
     }
     return true;
   }
+
   /**
    * Converts the string to a number
    * @param prompt the string for prompting
@@ -122,6 +128,7 @@ public class UserInterface {
       }
     } while (true);
   }
+
   /**
    * Prompts for a date and gets a date object
    * @param prompt the prompt
@@ -140,6 +147,7 @@ public class UserInterface {
       }
     } while (true);
   }
+
   /**
    * Prompts for a command from the keyboard
    *
@@ -158,6 +166,7 @@ public class UserInterface {
       }
     } while (true);
   }
+
   /**
    * Displays the help screen
    *
@@ -179,6 +188,7 @@ public class UserInterface {
     System.out.println(RETRIEVE + " to  retrieve");
     System.out.println(HELP + " for help");
   }
+
   /**
    * Method to be called for adding a member.
    * Prompts the user for the appropriate values and
@@ -196,6 +206,7 @@ public class UserInterface {
     }
     System.out.println(result);
   }
+
   /**
    * Method to be called for adding a book.
    * Prompts the user for the appropriate values and
@@ -207,7 +218,7 @@ public class UserInterface {
     Iterator allBooks;
     do {
       allBooks = library.getAllBooks();
-      while(allBooks.hasNext()) {
+      while (allBooks.hasNext()) {
         Object element = allBooks.next();
         System.out.println(element);
       }
@@ -225,6 +236,7 @@ public class UserInterface {
       }
     } while (true);
   }
+
   /**
    * Method to be called for issuing books.
    * Prompts the user for the appropriate values and
@@ -236,17 +248,17 @@ public class UserInterface {
     int index = 1;
     String memberID;
     HashMap memberMap = new HashMap();
-    for (Member member: library.memberList.members ){
+    for (Member member : library.memberList.members) {
       System.out.println(index + ") " + member.name);
       memberMap.put(index, member.id);
       index += 1;
     }
     do {
-    String sequenceNumber = getToken("Enter member sequence number, or -1 to quit.");
-    if (sequenceNumber.equals("-1")){
-      return;
-    }
-    memberID = (String)memberMap.get(Integer.parseInt(sequenceNumber));
+      String sequenceNumber = getToken("Enter member sequence number, or -1 to quit.");
+      if (sequenceNumber.equals("-1")) {
+        return;
+      }
+      memberID = (String) memberMap.get(Integer.parseInt(sequenceNumber));
       if (library.searchMembership(memberID) == null) {
         System.out.println("No such member, please try again!");
       } else {
@@ -256,16 +268,17 @@ public class UserInterface {
     do {
       String bookID = getToken("Enter book id");
       result = library.issueBook(memberID, bookID);
-      if (result != null){
-        System.out.println(result.getTitle()+ "   " +  result.getDueDate());
+      if (result != null) {
+        System.out.println(result.getTitle() + "   " + result.getDueDate());
       } else {
-          System.out.println("Book could not be issued.");
+        System.out.println("Book could not be issued.");
       }
       if (!yesOrNo("Issue more books?")) {
         break;
       }
     } while (true);
   }
+
   /**
    * Method to be called for renewing books.
    * Prompts the user for the appropriate values and
@@ -275,7 +288,7 @@ public class UserInterface {
   public void renewBooks() {
     Book result;
     Iterator allMembers = library.getAllMembers();
-    while(allMembers.hasNext()) {
+    while (allMembers.hasNext()) {
       Object element = allMembers.next();
       System.out.println(element);
     }
@@ -285,18 +298,19 @@ public class UserInterface {
       return;
     }
     Iterator issuedBooks = library.getBooks(memberID);
-    while (issuedBooks.hasNext()){
-      Book book = (Book)(issuedBooks.next());
+    while (issuedBooks.hasNext()) {
+      Book book = (Book) (issuedBooks.next());
       if (yesOrNo(book.getTitle())) {
         result = library.renewBook(book.getId(), memberID);
-        if (result != null){
-          System.out.println(result.getTitle()+ "   " + result.getDueDate());
+        if (result != null) {
+          System.out.println(result.getTitle() + "   " + result.getDueDate());
         } else {
           System.out.println("Book is not renewable");
         }
       }
     }
   }
+
   /**
    * Method to be called for returning books.
    * Prompts the user for the appropriate values and
@@ -308,7 +322,7 @@ public class UserInterface {
     do {
       String bookID = getToken("Enter book id");
       result = library.returnBook(bookID);
-      switch(result) {
+      switch (result) {
         case Library.BOOK_NOT_FOUND:
           System.out.println("No such Book in Library");
           break;
@@ -332,6 +346,7 @@ public class UserInterface {
       }
     } while (true);
   }
+
   /**
    * Method to be called for removing books.
    * Prompts the user for the appropriate values and
@@ -343,7 +358,7 @@ public class UserInterface {
     int index = 1;
     HashMap bookMap = new HashMap();
     do {
-      for (Book book: library.catalog.books ){
+      for (Book book : library.catalog.books) {
         if (!book.hasHold() && book.borrowedBy == null) {
           System.out.println(index + ") " + book.title + " by " + book.author);
           bookMap.put(index, book.id);
@@ -352,9 +367,9 @@ public class UserInterface {
       }
       index = 1;
       String sequenceNumber = getToken("Enter book sequence number");
-      String bookID = (String)bookMap.get(Integer.parseInt(sequenceNumber));
+      String bookID = (String) bookMap.get(Integer.parseInt(sequenceNumber));
       result = library.removeBook(bookID);
-      switch(result){
+      switch (result) {
         case Library.BOOK_NOT_FOUND:
           System.out.println("No such Book in Library");
           break;
@@ -378,6 +393,7 @@ public class UserInterface {
       }
     } while (true);
   }
+
   /**
    * Method to be called for placing a hold.
    * Prompts the user for the appropriate values and
@@ -385,21 +401,21 @@ public class UserInterface {
    *
    */
   public void placeHold() {
-	    Iterator allMembers = library.getAllMembers();
-	    while(allMembers.hasNext()) {
-	      Object element = allMembers.next();
-	      System.out.println(element);
-	    }
-	    String memberID = getToken("Enter member id");
-	    if (library.searchMembership(memberID) == null) {
-	      System.out.println("No such member");
-	      return;
-	    }
-	    
+    Iterator allMembers = library.getAllMembers();
+    while (allMembers.hasNext()) {
+      Object element = allMembers.next();
+      System.out.println(element);
+    }
+    String memberID = getToken("Enter member id");
+    if (library.searchMembership(memberID) == null) {
+      System.out.println("No such member");
+      return;
+    }
+
     String bookID = getToken("Enter book id");
     int duration = getNumber("Enter duration of hold");
     int result = library.placeHold(memberID, bookID, duration);
-    switch(result){
+    switch (result) {
       case Library.BOOK_NOT_FOUND:
         System.out.println("No such Book in Library");
         break;
@@ -416,6 +432,7 @@ public class UserInterface {
         System.out.println("An error has occurred");
     }
   }
+
   /**
    * Method to be called for removing a holds.
    * Prompts the user for the appropriate values and
@@ -426,7 +443,7 @@ public class UserInterface {
     String memberID = getToken("Enter member id");
     String bookID = getToken("Enter book id");
     int result = library.removeHold(memberID, bookID);
-    switch(result){
+    switch (result) {
       case Library.BOOK_NOT_FOUND:
         System.out.println("No such Book in Library");
         break;
@@ -440,6 +457,7 @@ public class UserInterface {
         System.out.println("An error has occurred");
     }
   }
+
   /**
    * Method to be called for processing books.
    * Prompts the user for the appropriate values and
@@ -461,6 +479,7 @@ public class UserInterface {
       }
     } while (true);
   }
+
   /**
    * Method to be called for displaying transactions.
    * Prompts the user for the appropriate values and
@@ -469,28 +488,39 @@ public class UserInterface {
    */
   public void getTransactions() {
     Iterator result;
-    Iterator allMembers = library.getAllMembers();
-    while(allMembers.hasNext()) {
-      Object element = allMembers.next();
-      System.out.println(element);
+    int index = 1;
+    String memberID;
+    HashMap memberMap = new HashMap();
+    for (Member member : library.memberList.members) {
+      System.out.println(index + ") " + member.name);
+      memberMap.put(index, member.id);
+      index += 1;
     }
-    String memberID = getToken("Enter member id");
-    if (library.searchMembership(memberID) == null) {
-      System.out.println("No such member");
-      return;
-    }
-    Calendar date  = getDate("Please enter the date for which you want records as mm/dd/yy");
-    result = library.getTransactions(memberID,date);
+    do {
+      String sequenceNumber = getToken("Enter member sequence number, or -1 to quit.");
+      if (sequenceNumber.equals("-1")) {
+        return;
+      }
+      memberID = (String) memberMap.get(Integer.parseInt(sequenceNumber));
+      if (library.searchMembership(memberID) == null) {
+        System.out.println("No such member, please try again!");
+      } else {
+        break;
+      }
+    } while (true);
+    Calendar date = getDate("Please enter the date for which you want records as mm/dd/yy");
+    result = library.getTransactions(memberID, date);
     if (result == null) {
       System.out.println("Invalid Member ID");
     } else {
-      while(result.hasNext()) {
+      while (result.hasNext()) {
         Transaction transaction = (Transaction) result.next();
-        System.out.println(transaction.getType() + "   "   + transaction.getTitle() + "\n");
+        System.out.println(transaction.getType() + "   " + transaction.getTitle() + "\n");
       }
-      System.out.println("\n  There are no more transactions \n" );
+      System.out.println("\n  There are no more transactions \n");
     }
   }
+
   /**
    * Method to be called for saving the Library object.
    * Uses the appropriate Library method for saving.
@@ -498,11 +528,12 @@ public class UserInterface {
    */
   private void save() {
     if (library.save()) {
-      System.out.println(" The library has been successfully saved in the file LibraryData \n" );
+      System.out.println(" The library has been successfully saved in the file LibraryData \n");
     } else {
-      System.out.println(" There has been an error in saving \n" );
+      System.out.println(" There has been an error in saving \n");
     }
   }
+
   /**
    * Method to be called for retrieving saved data.
    * Uses the appropriate Library method for retrieval.
@@ -512,16 +543,17 @@ public class UserInterface {
     try {
       Library tempLibrary = Library.retrieve();
       if (tempLibrary != null) {
-        System.out.println(" The library has been successfully retrieved from the file LibraryData \n" );
+        System.out.println(" The library has been successfully retrieved from the file LibraryData \n");
         library = tempLibrary;
       } else {
-        System.out.println("File doesnt exist; creating new library" );
+        System.out.println("File doesnt exist; creating new library");
         library = Library.instance();
       }
-    } catch(Exception cnfe) {
+    } catch (Exception cnfe) {
       cnfe.printStackTrace();
     }
   }
+
   /**
    * Orchestrates the whole process.
    * Calls the appropriate method for the different functionalties.
@@ -532,35 +564,49 @@ public class UserInterface {
     help();
     while ((command = getCommand()) != EXIT) {
       switch (command) {
-        case ADD_MEMBER:        addMember();
-                                break;
-        case ADD_BOOKS:         addBooks();
-                                break;
-        case ISSUE_BOOKS:       issueBooks();
-                                break;
-        case RETURN_BOOKS:      returnBooks();
-                                break;
-        case REMOVE_BOOKS:      removeBooks();
-                                break;
-        case RENEW_BOOKS:       renewBooks();
-                                break;
-        case PLACE_HOLD:        placeHold();
-                                break;
-        case REMOVE_HOLD:       removeHold();
-                                break;
-        case PROCESS_HOLD:      processHolds();
-                                break;
-        case GET_TRANSACTIONS:  getTransactions();
-                                break;
-        case SAVE:              save();
-                                break;
-        case RETRIEVE:          retrieve();
-                                break;
-        case HELP:              help();
-                                break;
+        case ADD_MEMBER:
+          addMember();
+          break;
+        case ADD_BOOKS:
+          addBooks();
+          break;
+        case ISSUE_BOOKS:
+          issueBooks();
+          break;
+        case RETURN_BOOKS:
+          returnBooks();
+          break;
+        case REMOVE_BOOKS:
+          removeBooks();
+          break;
+        case RENEW_BOOKS:
+          renewBooks();
+          break;
+        case PLACE_HOLD:
+          placeHold();
+          break;
+        case REMOVE_HOLD:
+          removeHold();
+          break;
+        case PROCESS_HOLD:
+          processHolds();
+          break;
+        case GET_TRANSACTIONS:
+          getTransactions();
+          break;
+        case SAVE:
+          save();
+          break;
+        case RETRIEVE:
+          retrieve();
+          break;
+        case HELP:
+          help();
+          break;
       }
     }
   }
+
   /**
    * The method to start the application. Simply calls process().
    * @param args not used
