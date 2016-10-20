@@ -27,11 +27,11 @@ import java.io.*;
  */
 public class Book implements Serializable {
   private static final long serialVersionUID = 1L;
-  private String title;
-  private String author;
-  private String id;
-  private Member borrowedBy;
-  private List holds = new LinkedList();
+  public String title;
+  public String author;
+  public String id;
+  public Member borrowedBy;
+  public List holds = new LinkedList();
   private Calendar dueDate;
   /**
    * Creates a book with the given id, title, and author name

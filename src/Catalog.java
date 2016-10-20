@@ -27,7 +27,7 @@ import java.io.*;
  */
 public class Catalog implements Serializable {
   private static final long serialVersionUID = 1L;
-  private List books = new LinkedList();
+  public List<Book> books = new LinkedList();
   private static Catalog catalog;
   /*
    * Private constructor for singleton pattern

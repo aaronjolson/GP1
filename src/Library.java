@@ -30,7 +30,7 @@ public class Library implements Serializable {
   public static final int OPERATION_COMPLETED= 7;
   public static final int OPERATION_FAILED= 8;
   public static final int NO_SUCH_MEMBER = 9;
-  private Catalog catalog;
+  public Catalog catalog;
   public MemberList memberList;
   private static Library library;
   /**

@@ -340,15 +340,19 @@ public class UserInterface {
    */
   public void removeBooks() {
     int result;
-    Iterator allBooks;
+    int index = 1;
+    HashMap bookMap = new HashMap();
     do {
-      allBooks = library.getAllBooks();
-      while(allBooks.hasNext()) {
-        Object element = allBooks.next();
-        System.out.println(element);
+      for (Book book: library.catalog.books ){
+        if (!book.hasHold() && book.borrowedBy == null) {
+          System.out.println(index + ") " + book.title + " by " + book.author);
+          bookMap.put(index, book.id);
+          index += 1;
+        }
       }
-      String bookID = getToken("Enter id");
-
+      index = 1;
+      String sequenceNumber = getToken("Enter book sequence number");
+      String bookID = (String)bookMap.get(Integer.parseInt(sequenceNumber));
       result = library.removeBook(bookID);
       switch(result){
         case Library.BOOK_NOT_FOUND:
