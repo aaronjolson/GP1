@@ -24,7 +24,7 @@ public class Member implements Serializable {
   public String name;
   private String address;
   private String phone;
-  private String id;
+  public String id;
   private static final String MEMBER_STRING = "";
   private List booksBorrowed = new LinkedList();
   private List booksOnHold = new LinkedList();

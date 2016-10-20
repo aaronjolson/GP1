@@ -218,7 +218,7 @@ public class UserInterface {
       if (result != null) {
         System.out.println(result);
       } else {
-        System.out.println("Book could not be added");
+        System.out.println("Book could not be added.");
       }
       if (!yesOrNo("Add more books?")) {
         break;
@@ -233,28 +233,37 @@ public class UserInterface {
    */
   public void issueBooks() {
     Book result;
+    int index = 1;
+    String memberID;
+    HashMap memberMap = new HashMap();
     for (Member member: library.memberList.members ){
-      System.out.println(member.name);
+      System.out.println(index + ") " + member.name);
+      memberMap.put(index, member.id);
+      index += 1;
     }
-    String memberID = getToken("Enter member id, or -1 to quit");
-    if (memberID.equals("-1")){
-      return;
-    }else if (library.searchMembership(memberID) == null) {
-      System.out.println("No such member");
+    do {
+    String sequenceNumber = getToken("Enter member sequence number, or -1 to quit.");
+    if (sequenceNumber.equals("-1")){
       return;
     }
+    memberID = (String)memberMap.get(Integer.parseInt(sequenceNumber));
+      if (library.searchMembership(memberID) == null) {
+        System.out.println("No such member, please try again!");
+      } else {
+        break;
+      }
+    } while (true);
     do {
       String bookID = getToken("Enter book id");
       result = library.issueBook(memberID, bookID);
       if (result != null){
         System.out.println(result.getTitle()+ "   " +  result.getDueDate());
       } else {
-          System.out.println("Book could not be issued");
+          System.out.println("Book could not be issued.");
       }
       if (!yesOrNo("Issue more books?")) {
         break;
       }
-      
     } while (true);
   }
   /**
