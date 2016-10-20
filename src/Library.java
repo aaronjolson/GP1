@@ -1,38 +1,40 @@
 /**
- *
  * @author Brahma Dathan and Sarnath Ramnath
  * @Copyright (c) 2010
-
+ * <p>
  * Redistribution and use with or without
  * modification, are permitted provided that the following conditions
  * are met:
- *
- *   - the use is for academic purpose only
- *   - Redistributions of source code must retain the above copyright
- *     notice, this list of conditions and the following disclaimer.
- *   - Neither the name of Brahma Dathan or Sarnath Ramnath
- *     may be used to endorse or promote products derived
- *     from this software without specific prior written permission.
- *
+ * <p>
+ * - the use is for academic purpose only
+ * - Redistributions of source code must retain the above copyright
+ * notice, this list of conditions and the following disclaimer.
+ * - Neither the name of Brahma Dathan or Sarnath Ramnath
+ * may be used to endorse or promote products derived
+ * from this software without specific prior written permission.
+ * <p>
  * The authors do not make any claims regarding the correctness of the code in this module
  * and are not responsible for any loss or damage resulting from its use.
  */
+
 import java.util.*;
 import java.io.*;
+
 public class Library implements Serializable {
   private static final long serialVersionUID = 1L;
-  public static final int BOOK_NOT_FOUND  = 1;
-  public static final int BOOK_NOT_ISSUED  = 2;
-  public static final int BOOK_HAS_HOLD  = 3;
-  public static final int BOOK_ISSUED  = 4;
-  public static final int HOLD_PLACED  = 5;
-  public static final int NO_HOLD_FOUND  = 6;
-  public static final int OPERATION_COMPLETED= 7;
-  public static final int OPERATION_FAILED= 8;
+  public static final int BOOK_NOT_FOUND = 1;
+  public static final int BOOK_NOT_ISSUED = 2;
+  public static final int BOOK_HAS_HOLD = 3;
+  public static final int BOOK_ISSUED = 4;
+  public static final int HOLD_PLACED = 5;
+  public static final int NO_HOLD_FOUND = 6;
+  public static final int OPERATION_COMPLETED = 7;
+  public static final int OPERATION_FAILED = 8;
   public static final int NO_SUCH_MEMBER = 9;
   public Catalog catalog;
   public MemberList memberList;
   private static Library library;
+
   /**
    * Private for the singleton pattern
    * Creates the catalog and member collection objects
@@ -41,6 +43,7 @@ public class Library implements Serializable {
     catalog = Catalog.instance();
     memberList = MemberList.instance();
   }
+
   /**
    * Supports the singleton pattern
    *
@@ -55,11 +58,11 @@ public class Library implements Serializable {
     }
   }
 
-  public Iterator getAllBooks(){
+  public Iterator getAllBooks() {
     return catalog.getBooks();
   }
 
-  public Iterator getAllMembers(){
+  public Iterator getAllMembers() {
     return memberList.getMembers();
   }
 
@@ -77,6 +80,7 @@ public class Library implements Serializable {
     }
     return null;
   }
+
   /**
    * Organizes the operations for adding a member
    * @param name member name
@@ -91,6 +95,7 @@ public class Library implements Serializable {
     }
     return null;
   }
+
   /**
    * Organizes the placing of a hold
    * @param memberId member's id
@@ -101,20 +106,21 @@ public class Library implements Serializable {
   public int placeHold(String memberId, String bookId, int duration) {
     Book book = catalog.search(bookId);
     if (book == null) {
-      return(BOOK_NOT_FOUND);
+      return (BOOK_NOT_FOUND);
     }
     if (book.getBorrower() == null) {
-      return(BOOK_NOT_ISSUED);
+      return (BOOK_NOT_ISSUED);
     }
     Member member = memberList.search(memberId);
     if (member == null) {
-      return(NO_SUCH_MEMBER);
+      return (NO_SUCH_MEMBER);
     }
     Hold hold = new Hold(member, book, duration);
     book.placeHold(hold);
     member.placeHold(hold);
-    return(HOLD_PLACED);
+    return (HOLD_PLACED);
   }
+
   /**
    * Searches for a given member
    * @param memberId id of the member
@@ -123,6 +129,7 @@ public class Library implements Serializable {
   public Member searchMembership(String memberId) {
     return memberList.search(memberId);
   }
+
   /**
    * Processes holds for a single book
    * @param bookId id of the book
@@ -141,6 +148,7 @@ public class Library implements Serializable {
     hold.getBook().removeHold(hold.getMember().getId());
     return (hold.getMember());
   }
+
   /**
    * Removes a hold for a specific book and member combination
    * @param memberId id of the member
@@ -154,10 +162,11 @@ public class Library implements Serializable {
     }
     Book book = catalog.search(bookId);
     if (book == null) {
-      return(BOOK_NOT_FOUND);
+      return (BOOK_NOT_FOUND);
     }
-    return member.removeHold(bookId) && book.removeHold(memberId)? OPERATION_COMPLETED: NO_HOLD_FOUND;
+    return member.removeHold(bookId) && book.removeHold(memberId) ? OPERATION_COMPLETED : NO_HOLD_FOUND;
   }
+
   /*
    * Removes all out-of-date holds
    */
@@ -172,6 +181,7 @@ public class Library implements Serializable {
       }
     }
   }
+
   /**
    * Organizes the issuing of a book
    * @param memberId member id
@@ -181,20 +191,21 @@ public class Library implements Serializable {
   public Book issueBook(String memberId, String bookId) {
     Book book = catalog.search(bookId);
     if (book == null) {
-      return(null);
+      return (null);
     }
     if (book.getBorrower() != null) {
-      return(null);
+      return (null);
     }
     Member member = memberList.search(memberId);
     if (member == null) {
-      return(null);
+      return (null);
     }
     if (!(book.issue(member) && member.issue(book))) {
       return null;
     }
-    return(book);
+    return (book);
   }
+
   /**
    * Renews a book
    * @param bookId id of the book to be renewed
@@ -204,17 +215,18 @@ public class Library implements Serializable {
   public Book renewBook(String bookId, String memberId) {
     Book book = catalog.search(bookId);
     if (book == null) {
-      return(null);
+      return (null);
     }
     Member member = memberList.search(memberId);
     if (member == null) {
-      return(null);
+      return (null);
     }
     if ((book.renew(member) && member.renew(book))) {
-      return(book);
+      return (book);
     }
-    return(null);
+    return (null);
   }
+
   /**
    * Returns an iterator to the books issued to a member
    * @param memberId member id
@@ -223,11 +235,12 @@ public class Library implements Serializable {
   public Iterator getBooks(String memberId) {
     Member member = memberList.search(memberId);
     if (member == null) {
-      return(null);
+      return (null);
     } else {
       return (member.getBooksIssued());
     }
   }
+
   /**
    * Removes a specific book from the catalog
    * @param bookId id of the book
@@ -237,19 +250,20 @@ public class Library implements Serializable {
     Book book = catalog.search(bookId);
 
     if (book == null) {
-      return(BOOK_NOT_FOUND);
+      return (BOOK_NOT_FOUND);
     }
     if (book.hasHold()) {
-      return(BOOK_HAS_HOLD);
+      return (BOOK_HAS_HOLD);
     }
-    if ( book.getBorrower() != null) {
-      return(BOOK_ISSUED);
+    if (book.getBorrower() != null) {
+      return (BOOK_ISSUED);
     }
     if (catalog.removeBook(bookId)) {
       return (OPERATION_COMPLETED);
     }
     return (OPERATION_FAILED);
   }
+
   /**
    * Returns a single book
    * @param bookId id of the book to be returned
@@ -258,20 +272,21 @@ public class Library implements Serializable {
   public int returnBook(String bookId) {
     Book book = catalog.search(bookId);
     if (book == null) {
-      return(BOOK_NOT_FOUND);
+      return (BOOK_NOT_FOUND);
     }
     Member member = book.returnBook();
     if (member == null) {
-      return(BOOK_NOT_ISSUED);
+      return (BOOK_NOT_ISSUED);
     }
     if (!(member.returnBook(book))) {
-      return(OPERATION_FAILED);
+      return (OPERATION_FAILED);
     }
     if (book.hasHold()) {
-      return(BOOK_HAS_HOLD);
+      return (BOOK_HAS_HOLD);
     }
-    return(OPERATION_COMPLETED);
+    return (OPERATION_COMPLETED);
   }
+
   /**
    * Returns an iterator to the transactions for a specific member on a certain date
    * @param memberId member id
@@ -281,10 +296,11 @@ public class Library implements Serializable {
   public Iterator getTransactions(String memberId, Calendar date) {
     Member member = memberList.search(memberId);
     if (member == null) {
-      return(null);
+      return (null);
     }
     return member.getTransactions(date);
   }
+
   /**
    * Retrieves a deserialized version of the library from disk
    * @return a Library object
@@ -296,30 +312,32 @@ public class Library implements Serializable {
       input.readObject();
       MemberIdServer.retrieve(input);
       return library;
-    } catch(IOException ioe) {
+    } catch (IOException ioe) {
       ioe.printStackTrace();
       return null;
-    } catch(ClassNotFoundException cnfe) {
+    } catch (ClassNotFoundException cnfe) {
       cnfe.printStackTrace();
       return null;
     }
   }
+
   /**
    * Serializes the Library object
    * @return true iff the data could be saved
    */
-  public static  boolean save() {
+  public static boolean save() {
     try {
       FileOutputStream file = new FileOutputStream("LibraryData");
       ObjectOutputStream output = new ObjectOutputStream(file);
       output.writeObject(library);
       output.writeObject(MemberIdServer.instance());
       return true;
-    } catch(IOException ioe) {
+    } catch (IOException ioe) {
       ioe.printStackTrace();
       return false;
     }
   }
+
   /**
    * Writes the object to the output stream
    * @param output the stream to be written to
@@ -328,10 +346,11 @@ public class Library implements Serializable {
     try {
       output.defaultWriteObject();
       output.writeObject(library);
-    } catch(IOException ioe) {
+    } catch (IOException ioe) {
       System.out.println(ioe);
     }
   }
+
   /**
    * Reads the object from a given stream
    * @param input the stream to be read
@@ -344,12 +363,13 @@ public class Library implements Serializable {
       } else {
         input.readObject();
       }
-    } catch(IOException ioe) {
+    } catch (IOException ioe) {
       ioe.printStackTrace();
-    } catch(Exception e) {
+    } catch (Exception e) {
       e.printStackTrace();
     }
   }
+
   /** String form of the library
    *
    */
