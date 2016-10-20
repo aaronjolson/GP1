@@ -218,10 +218,6 @@ public class UserInterface {
     Iterator allBooks;
     do {
       allBooks = library.getAllBooks();
-      while (allBooks.hasNext()) {
-        Object element = allBooks.next();
-        System.out.println(element);
-      }
       String title = getToken("Enter  title");
       String bookID = getToken("Enter id");
       String author = getToken("Enter author");
@@ -258,7 +254,12 @@ public class UserInterface {
       if (sequenceNumber.equals("-1")) {
         return;
       }
-      memberID = (String) memberMap.get(Integer.parseInt(sequenceNumber));
+      try {
+        memberID = (String) memberMap.get(Integer.parseInt(sequenceNumber));
+      } catch (NumberFormatException exception) {
+        System.out.println("That is not a vaild sequence number.");
+        memberID = null;
+      }
       if (library.searchMembership(memberID) == null) {
         System.out.println("No such member, please try again!");
       } else {
