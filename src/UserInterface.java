@@ -234,6 +234,7 @@ public class UserInterface {
   public void issueBooks() {
     Book result;
     int index = 1;
+    int index2 = 1;
     String memberID;
     HashMap memberMap = new HashMap();
     for (Member member : library.memberList.members) {
@@ -258,6 +259,15 @@ public class UserInterface {
         break;
       }
     } while (true);
+
+    HashMap bookMap = new HashMap();
+    for (Book book : library.catalog.books) {
+      if(!book.hasHold() && book.borrowedBy == null) {
+        System.out.println(index2 + ") " + book.title + " by " + book.author + " id = " + book.id);
+        bookMap.put(index2, book.id);
+        index2 += 1;
+      }
+    }
     do {
       String bookID = getToken("Enter book id");
       result = library.issueBook(memberID, bookID);
@@ -266,7 +276,7 @@ public class UserInterface {
       } else {
         System.out.println("Book could not be issued.");
       }
-      if (!yesOrNo("Issue more books?")) {
+      if (!yesOrNo("Issue more books to this member?")) {
         break;
       }
     } while (true);
@@ -429,30 +439,31 @@ public class UserInterface {
     } while (true);
 
     for (Book book : library.catalog.books) {
-      if (!book.hasHold() && book.borrowedBy == null) {
+      if (book.borrowedBy == null) {
+      } else {
         System.out.println(bookIndex + ") " + book.title + " by " + book.author);
         bookMap.put(bookIndex, book.id);
         bookIndex += 1;
       }
-      String bookID = getToken("Enter book id");
-      int duration = getNumber("Enter duration of hold");
-      int result = library.placeHold(memberID, bookID, duration);
-      switch (result) {
-        case Library.BOOK_NOT_FOUND:
-          System.out.println("No such Book in Library");
-          break;
-        case Library.BOOK_NOT_ISSUED:
-          System.out.println(" Book is not checked out");
-          break;
-        case Library.NO_SUCH_MEMBER:
-          System.out.println("Not a valid member ID");
-          break;
-        case Library.HOLD_PLACED:
-          System.out.println("A hold has been placed");
-          break;
-        default:
-          System.out.println("An error has occurred");
-      }
+    }
+    String bookID = getToken("Enter book id");
+    int duration = getNumber("Enter duration of hold");
+    int result = library.placeHold(memberID, bookID, duration);
+    switch (result) {
+      case Library.BOOK_NOT_FOUND:
+        System.out.println("No such Book in Library");
+        break;
+      case Library.BOOK_NOT_ISSUED:
+        System.out.println(" Book is not checked out");
+        break;
+      case Library.NO_SUCH_MEMBER:
+        System.out.println("Not a valid member ID");
+        break;
+      case Library.HOLD_PLACED:
+        System.out.println("A hold has been placed");
+        break;
+      default:
+        System.out.println("An error has occurred");
     }
   }
 
