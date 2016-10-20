@@ -287,16 +287,26 @@ public class UserInterface {
    */
   public void renewBooks() {
     Book result;
-    Iterator allMembers = library.getAllMembers();
-    while (allMembers.hasNext()) {
-      Object element = allMembers.next();
-      System.out.println(element);
+    int index = 1;
+    String memberID;
+    HashMap memberMap = new HashMap();
+    for (Member member : library.memberList.members) {
+      System.out.println(index + ") " + member.name);
+      memberMap.put(index, member.id);
+      index += 1;
     }
-    String memberID = getToken("Enter member id");
-    if (library.searchMembership(memberID) == null) {
-      System.out.println("No such member");
-      return;
-    }
+    do {
+      String sequenceNumber = getToken("Enter member sequence number, or -1 to quit.");
+      if (sequenceNumber.equals("-1")) {
+        return;
+      }
+      memberID = (String) memberMap.get(Integer.parseInt(sequenceNumber));
+      if (library.searchMembership(memberID) == null) {
+        System.out.println("No such member, please try again!");
+      } else {
+        break;
+      }
+    } while (true);
     Iterator issuedBooks = library.getBooks(memberID);
     while (issuedBooks.hasNext()) {
       Book book = (Book) (issuedBooks.next());
