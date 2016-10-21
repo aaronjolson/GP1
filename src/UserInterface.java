@@ -558,13 +558,21 @@ public void removeHold() {
 	        return;
 	      }
 	      bookID = (String) bookMap.get(Integer.parseInt(sequenceNumber));
-	      result = library.removeHold(bookID, memberID);
-
-	      if (result==0) {
-	        System.out.println("null");
-	        break;
-	      } else {
-	        System.out.println("Hold has been removed");
+	      System.out.println(memberID + " " + bookID);
+	      result = library.removeHold(memberID, bookID);
+	      System.out.println(result);
+	      switch (result) {
+	      case Library.BOOK_NOT_FOUND:
+	      System.out.println("No such Book in Library");
+	      break;
+	      case Library.NO_SUCH_MEMBER:
+	      System.out.println("Not a valid member ID");
+	      break;
+	      case Library.OPERATION_COMPLETED:
+	      System.out.println("The hold has been removed");
+	      break;
+	      default:
+	      System.out.println("An error has occurred");
 	      }
 	      if (!yesOrNo("Remove more holds?")) {
 	        break;
