@@ -234,6 +234,7 @@ public class UserInterface {
   public void issueBooks() {
     Book result;
     int index = 1;
+    int index2 = 1;
     String memberID;
     HashMap memberMap = new HashMap();
     for (Member member : library.memberList.members) {
@@ -249,7 +250,6 @@ public class UserInterface {
       try {
         memberID = (String) memberMap.get(Integer.parseInt(sequenceNumber));
       } catch (NumberFormatException exception) {
-        System.out.println("That is not a vaild sequence number.");
         memberID = null;
       }
       if (library.searchMembership(memberID) == null) {
@@ -258,6 +258,15 @@ public class UserInterface {
         break;
       }
     } while (true);
+
+    HashMap bookMap = new HashMap();
+    for (Book book : library.catalog.books) {
+      if (book.borrowedBy == null) {
+        System.out.println(index2 + ") " + book.title + " by " + book.author + " id = " + book.id);
+        bookMap.put(index2, book.id);
+        index2 += 1;
+      }
+    }
     do {
       String bookID = getToken("Enter book id");
       result = library.issueBook(memberID, bookID);
@@ -266,7 +275,7 @@ public class UserInterface {
       } else {
         System.out.println("Book could not be issued.");
       }
-      if (!yesOrNo("Issue more books?")) {
+      if (!yesOrNo("Issue more books to this member?")) {
         break;
       }
     } while (true);
@@ -280,7 +289,9 @@ public class UserInterface {
   public void renewBooks() {
     Book result;
     int index = 1;
+    int index2 = 1;
     String memberID;
+    String bookID;
     HashMap memberMap = new HashMap();
     for (Member member : library.memberList.members) {
       System.out.println(index + ") " + member.name);
@@ -292,25 +303,50 @@ public class UserInterface {
       if (sequenceNumber.equals("-1")) {
         return;
       }
-      memberID = (String) memberMap.get(Integer.parseInt(sequenceNumber));
+      try {
+        memberID = (String) memberMap.get(Integer.parseInt(sequenceNumber));
+      } catch (NumberFormatException exception) {
+        memberID = null;
+      }
       if (library.searchMembership(memberID) == null) {
         System.out.println("No such member, please try again!");
       } else {
         break;
       }
+
     } while (true);
-    Iterator issuedBooks = library.getBooks(memberID);
-    while (issuedBooks.hasNext()) {
-      Book book = (Book) (issuedBooks.next());
-      if (yesOrNo(book.getTitle())) {
-        result = library.renewBook(book.getId(), memberID);
-        if (result != null) {
-          System.out.println(result.getTitle() + "   " + result.getDueDate());
-        } else {
-          System.out.println("Book is not renewable");
+
+    HashMap bookMap = new HashMap();
+    do {
+      index2 = 1;
+      for (Book book : library.catalog.books) {
+        if (book.borrowedBy == null) {
+        } else if (book.borrowedBy.equals(memberID)) {
+          System.out.println(index2 + ") " + book.title + " by " + book.author);
+          bookMap.put(index2, book.id);
+          index2 += 1;
         }
+
       }
-    }
+      String sequenceNumber = getToken("Enter book sequence number, or -1 to quit.");
+      if (sequenceNumber.equals("-1")) {
+        return;
+      }
+      try {
+        bookID = (String) bookMap.get(Integer.parseInt(sequenceNumber));
+      } catch (NumberFormatException exception) {
+        bookID = null;
+      }
+      result = library.renewBook(bookID, memberID);
+      if (result == null) {
+        System.out.println("That book is not renewable because there is a hold on it!");
+      } else {
+        System.out.println(result.getTitle() + " " + result.getDueDate());
+      }
+      if (!yesOrNo("Renew more books?")) {
+        break;
+      }
+    } while (true);
   }
 
   /**
@@ -356,6 +392,7 @@ public class UserInterface {
   public void removeBooks() {
     int result;
     int index = 1;
+    String bookID;
     HashMap bookMap = new HashMap();
     do {
       for (Book book : library.catalog.books) {
@@ -367,7 +404,14 @@ public class UserInterface {
       }
       index = 1;
       String sequenceNumber = getToken("Enter book sequence number");
-      String bookID = (String) bookMap.get(Integer.parseInt(sequenceNumber));
+      if (sequenceNumber.equals("-1")) {
+        return;
+      }
+      try {
+        bookID = (String) bookMap.get(Integer.parseInt(sequenceNumber));
+      } catch (NumberFormatException exception) {
+        bookID = null;
+      }
       result = library.removeBook(bookID);
       switch (result) {
         case Library.BOOK_NOT_FOUND:
@@ -403,6 +447,7 @@ public class UserInterface {
     int memberIndex = 1;
     int bookIndex = 1;
     String memberID;
+    String bookID;
     HashMap memberMap = new HashMap();
     HashMap bookMap = new HashMap();
     for (Member member : library.memberList.members) {
@@ -429,30 +474,37 @@ public class UserInterface {
     } while (true);
 
     for (Book book : library.catalog.books) {
-      if (!book.hasHold() && book.borrowedBy == null) {
-        System.out.println(bookIndex + ") " + book.title + " by " + book.author);
+      if (book.borrowedBy == null) {
+      } else {
+        //System.out.println(bookIndex + ") " + book.title + " by " + book.author);
+        System.out.println(bookIndex + ") " + book);
         bookMap.put(bookIndex, book.id);
         bookIndex += 1;
       }
-      String bookID = getToken("Enter book id");
-      int duration = getNumber("Enter duration of hold");
-      int result = library.placeHold(memberID, bookID, duration);
-      switch (result) {
-        case Library.BOOK_NOT_FOUND:
-          System.out.println("No such Book in Library");
-          break;
-        case Library.BOOK_NOT_ISSUED:
-          System.out.println(" Book is not checked out");
-          break;
-        case Library.NO_SUCH_MEMBER:
-          System.out.println("Not a valid member ID");
-          break;
-        case Library.HOLD_PLACED:
-          System.out.println("A hold has been placed");
-          break;
-        default:
-          System.out.println("An error has occurred");
-      }
+    }
+    String sequenceNumber = getToken("Enter book sequence number");
+    try {
+      bookID = (String) bookMap.get(Integer.parseInt(sequenceNumber));
+    } catch (NumberFormatException exception) {
+      bookID = null;
+    }
+    int duration = getNumber("Enter duration of hold");
+    int result = library.placeHold(memberID, bookID, duration);
+    switch (result) {
+      case Library.BOOK_NOT_FOUND:
+        System.out.println("No such Book in Library");
+        break;
+      case Library.BOOK_NOT_ISSUED:
+        System.out.println(" Book is not checked out");
+        break;
+      case Library.NO_SUCH_MEMBER:
+        System.out.println("Not a valid member ID");
+        break;
+      case Library.HOLD_PLACED:
+        System.out.println("A hold has been placed");
+        break;
+      default:
+        System.out.println("An error has occurred");
     }
   }
 
@@ -461,23 +513,77 @@ public class UserInterface {
    * Prompts the user for the appropriate values and
    * uses the appropriate Library method for removing a hold.
    */
+
   public void removeHold() {
-    String memberID = getToken("Enter member id");
-    String bookID = getToken("Enter book id");
-    int result = library.removeHold(memberID, bookID);
-    switch (result) {
-      case Library.BOOK_NOT_FOUND:
-        System.out.println("No such Book in Library");
-        break;
-      case Library.NO_SUCH_MEMBER:
-        System.out.println("Not a valid member ID");
-        break;
-      case Library.OPERATION_COMPLETED:
-        System.out.println("The hold has been removed");
-        break;
-      default:
-        System.out.println("An error has occurred");
+    int result;
+    int memberIndex = 1;
+    int bookIndex = 1;
+    String memberID;
+    String bookID;
+    HashMap memberMap = new HashMap();
+    HashMap bookMap = new HashMap();
+    for (Member member : library.memberList.members) {
+      System.out.println(memberIndex + ") " + member.name);
+      memberMap.put(memberIndex, member.id);
+      memberIndex += 1;
     }
+    do {
+      String sequenceNumber = getToken("Enter member sequence number, or -1 to quit.");
+      if (sequenceNumber.equals("-1")) {
+        return;
+      }
+      try {
+        memberID = (String) memberMap.get(Integer.parseInt(sequenceNumber));
+      } catch (NumberFormatException exception) {
+        System.out.println("That is not a vaild sequence number.");
+        memberID = null;
+      }
+      if (library.searchMembership(memberID) == null) {
+        System.out.println("No such member, please try again!");
+      } else {
+        break;
+      }
+    } while (true);
+
+    do {
+
+      for (Book book : library.catalog.books) {
+        if (!(book.hasHold())) {
+
+        } else if (book.hasHold()) {
+          System.out.println(bookIndex + ") " + book.title + " by " + book.author);
+          bookMap.put(bookIndex, book.id);
+          bookIndex += 1;
+        }
+
+      }
+      String sequenceNumber = getToken("Enter book sequence number, or -1 to quit.");
+      if (sequenceNumber.equals("-1")) {
+        return;
+      }
+      bookID = (String) bookMap.get(Integer.parseInt(sequenceNumber));
+      bookIndex = 1;
+      //System.out.println(memberID + " " + bookID);
+      result = library.removeHold(memberID, bookID);
+      // System.out.println(result);
+      switch (result) {
+        case Library.BOOK_NOT_FOUND:
+          System.out.println("No such Book in Library");
+          break;
+        case Library.NO_SUCH_MEMBER:
+          System.out.println("Not a valid member ID");
+          break;
+        case Library.OPERATION_COMPLETED:
+          System.out.println("The hold has been removed");
+          break;
+        default:
+          System.out.println("An error has occurred");
+      }
+      if (!yesOrNo("Remove more holds?")) {
+        break;
+      }
+    } while (true);
+
   }
 
   /**
@@ -487,6 +593,16 @@ public class UserInterface {
    */
   public void processHolds() {
     Member result;
+    HashMap bookMap = new HashMap();
+    int bookIndex = 1;
+    for (Book book : library.catalog.books) {
+      if (book.hasHold()) {
+      } else {
+        System.out.println(bookIndex + ") " + book.title + " by " + book.author);
+        bookMap.put(bookIndex, book.id);
+        bookIndex += 1;
+      }
+    }
     do {
       String bookID = getToken("Enter book id");
       result = library.processHold(bookID);
@@ -521,7 +637,11 @@ public class UserInterface {
       if (sequenceNumber.equals("-1")) {
         return;
       }
-      memberID = (String) memberMap.get(Integer.parseInt(sequenceNumber));
+      try {
+        memberID = (String) memberMap.get(Integer.parseInt(sequenceNumber));
+      } catch (NumberFormatException exception) {
+        memberID = null;
+      }
       if (library.searchMembership(memberID) == null) {
         System.out.println("No such member, please try again!");
       } else {
