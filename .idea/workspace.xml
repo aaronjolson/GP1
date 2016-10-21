@@ -3,6 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="9971a3d9-89f6-4814-95da-9142d9daa603" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/LibraryData" afterPath="$PROJECT_DIR$/LibraryData" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/UserInterface.java" afterPath="$PROJECT_DIR$/src/UserInterface.java" />
     </list>
     <ignored path="Class Project 1.iws" />
@@ -28,13 +29,13 @@
       <file leaf-file-name="UserInterface.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/UserInterface.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="240">
-              <caret line="381" column="7" selection-start-line="381" selection-start-column="7" selection-end-line="381" selection-end-column="7" />
+            <state relative-caret-position="154">
+              <caret line="300" column="23" selection-start-line="300" selection-start-column="23" selection-end-line="300" selection-end-column="23" />
               <folding>
                 <element signature="n#!!doc" expanded="true" />
                 <element signature="imports" expanded="true" />
-                <element signature="e#19827#19828#0" expanded="true" />
-                <element signature="e#19871#19872#0" expanded="true" />
+                <element signature="e#20734#20735#0" expanded="true" />
+                <element signature="e#20778#20779#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -43,9 +44,12 @@
       <file leaf-file-name="Book.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Book.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="270">
-              <caret line="38" column="30" selection-start-line="38" selection-start-column="30" selection-end-line="38" selection-end-column="30" />
-              <folding />
+            <state relative-caret-position="-1586">
+              <caret line="29" column="16" selection-start-line="29" selection-start-column="16" selection-end-line="29" selection-end-column="16" />
+              <folding>
+                <element signature="e#3996#3997#0" expanded="true" />
+                <element signature="e#4018#4019#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -53,8 +57,8 @@
       <file leaf-file-name="Library.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Library.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="165">
-              <caret line="204" column="5" selection-start-line="204" selection-start-column="5" selection-end-line="204" selection-end-column="5" />
+            <state relative-caret-position="126">
+              <caret line="234" column="23" selection-start-line="234" selection-start-column="23" selection-end-line="234" selection-end-column="23" />
               <folding>
                 <element signature="n#!!doc" expanded="true" />
                 <element signature="imports" expanded="true" />
@@ -339,6 +343,9 @@
           <option name="mySupportsDeletion" value="false" />
           <option name="myCanBeAbsent" value="false" />
           <option name="myId" value="UPDATED" />
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/bin/.gitignore</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/bin/Library.class</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/bin/UserInterface.class</PATH>
           <PATH vcs="Git" revision="">$PROJECT_DIR$/src/UserInterface.java</PATH>
         </FILE-GROUP>
         <FILE-GROUP>
@@ -902,7 +909,7 @@
       <workItem from="1476743773802" duration="2532000" />
       <workItem from="1476746486662" duration="1361000" />
       <workItem from="1476747931849" duration="3419000" />
-      <workItem from="1477001032676" duration="4414000" />
+      <workItem from="1477001032676" duration="10126000" />
     </task>
     <task id="LOCAL-00001" summary="Merge branch 'master' of https://github.com/aaronjolson/GP1&#10;&#10;# Please enter a commit message to explain why this merge is necessary,&#10;# especially if it merges an updated upstream into a topic branch.&#10;#&#10;# Lines starting with '#' will be ignored, and an empty message aborts&#10;# the commit.&#10;">
       <created>1476415383131</created>
@@ -967,11 +974,18 @@
       <option name="project" value="LOCAL" />
       <updated>1477006266948</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="-1">
+      <created>1477006380635</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1477006380635</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="19650000" />
+    <option name="totallyTimeSpent" value="25362000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1440" height="873" extended-state="6" />
@@ -985,8 +999,8 @@
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.329602" sideWeight="0.50277776" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3802817" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3277849" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.41357234" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3277849" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.23943663" sideWeight="0.49722221" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -1055,7 +1069,8 @@
     <MESSAGE value="code clean up" />
     <MESSAGE value="work on place hold" />
     <MESSAGE value="work on place hold and updates to Library test data" />
-    <option name="LAST_COMMIT_MESSAGE" value="work on place hold and updates to Library test data" />
+    <MESSAGE value="-1" />
+    <option name="LAST_COMMIT_MESSAGE" value="-1" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1075,8 +1090,8 @@
           <folding>
             <element signature="n#!!doc" expanded="true" />
             <element signature="imports" expanded="true" />
-            <element signature="e#19827#19828#0" expanded="true" />
-            <element signature="e#19871#19872#0" expanded="true" />
+            <element signature="e#20734#20735#0" expanded="true" />
+            <element signature="e#20778#20779#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1085,7 +1100,10 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="945">
           <caret line="85" column="5" selection-start-line="85" selection-start-column="4" selection-end-line="85" selection-end-column="4" />
-          <folding />
+          <folding>
+            <element signature="e#3996#3997#0" expanded="true" />
+            <element signature="e#4018#4019#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1137,8 +1155,8 @@
           <folding>
             <element signature="n#!!doc" expanded="true" />
             <element signature="imports" expanded="true" />
-            <element signature="e#19827#19828#0" expanded="true" />
-            <element signature="e#19871#19872#0" expanded="true" />
+            <element signature="e#20734#20735#0" expanded="true" />
+            <element signature="e#20778#20779#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1155,7 +1173,10 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1125">
           <caret line="97" column="43" selection-start-line="97" selection-start-column="28" selection-end-line="97" selection-end-column="43" />
-          <folding />
+          <folding>
+            <element signature="e#3996#3997#0" expanded="true" />
+            <element signature="e#4018#4019#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1220,8 +1241,8 @@
           <folding>
             <element signature="n#!!doc" expanded="true" />
             <element signature="imports" expanded="true" />
-            <element signature="e#19827#19828#0" expanded="true" />
-            <element signature="e#19871#19872#0" expanded="true" />
+            <element signature="e#20734#20735#0" expanded="true" />
+            <element signature="e#20778#20779#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1238,7 +1259,10 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1125">
           <caret line="97" column="43" selection-start-line="97" selection-start-column="28" selection-end-line="97" selection-end-column="43" />
-          <folding />
+          <folding>
+            <element signature="e#3996#3997#0" expanded="true" />
+            <element signature="e#4018#4019#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1290,8 +1314,8 @@
           <folding>
             <element signature="n#!!doc" expanded="true" />
             <element signature="imports" expanded="true" />
-            <element signature="e#19827#19828#0" expanded="true" />
-            <element signature="e#19871#19872#0" expanded="true" />
+            <element signature="e#20734#20735#0" expanded="true" />
+            <element signature="e#20778#20779#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1300,7 +1324,10 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1125">
           <caret line="97" column="43" selection-start-line="97" selection-start-column="28" selection-end-line="97" selection-end-column="43" />
-          <folding />
+          <folding>
+            <element signature="e#3996#3997#0" expanded="true" />
+            <element signature="e#4018#4019#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1360,8 +1387,8 @@
           <folding>
             <element signature="n#!!doc" expanded="true" />
             <element signature="imports" expanded="true" />
-            <element signature="e#19827#19828#0" expanded="true" />
-            <element signature="e#19871#19872#0" expanded="true" />
+            <element signature="e#20734#20735#0" expanded="true" />
+            <element signature="e#20778#20779#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1370,7 +1397,10 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1125">
           <caret line="97" column="43" selection-start-line="97" selection-start-column="28" selection-end-line="97" selection-end-column="43" />
-          <folding />
+          <folding>
+            <element signature="e#3996#3997#0" expanded="true" />
+            <element signature="e#4018#4019#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1549,8 +1579,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Library.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="204" column="5" selection-start-line="204" selection-start-column="5" selection-end-line="204" selection-end-column="5" />
+        <state relative-caret-position="126">
+          <caret line="234" column="23" selection-start-line="234" selection-start-column="23" selection-end-line="234" selection-end-column="23" />
           <folding>
             <element signature="n#!!doc" expanded="true" />
             <element signature="imports" expanded="true" />
@@ -1566,21 +1596,24 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Book.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="38" column="30" selection-start-line="38" selection-start-column="30" selection-end-line="38" selection-end-column="30" />
-          <folding />
+        <state relative-caret-position="-1586">
+          <caret line="29" column="16" selection-start-line="29" selection-start-column="16" selection-end-line="29" selection-end-column="16" />
+          <folding>
+            <element signature="e#3996#3997#0" expanded="true" />
+            <element signature="e#4018#4019#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/UserInterface.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="381" column="7" selection-start-line="381" selection-start-column="7" selection-end-line="381" selection-end-column="7" />
+        <state relative-caret-position="154">
+          <caret line="300" column="23" selection-start-line="300" selection-start-column="23" selection-end-line="300" selection-end-column="23" />
           <folding>
             <element signature="n#!!doc" expanded="true" />
             <element signature="imports" expanded="true" />
-            <element signature="e#19827#19828#0" expanded="true" />
-            <element signature="e#19871#19872#0" expanded="true" />
+            <element signature="e#20734#20735#0" expanded="true" />
+            <element signature="e#20778#20779#0" expanded="true" />
           </folding>
         </state>
       </provider>

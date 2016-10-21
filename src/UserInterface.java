@@ -262,7 +262,9 @@ public class UserInterface {
 
     HashMap bookMap = new HashMap();
     for (Book book : library.catalog.books) {
-      if(!book.hasHold() && book.borrowedBy == null) {
+      System.out.println("all books :");
+      System.out.println(book);
+      if (book.borrowedBy == null) {
         System.out.println(index2 + ") " + book.title + " by " + book.author + " id = " + book.id);
         bookMap.put(index2, book.id);
         index2 += 1;
@@ -288,63 +290,62 @@ public class UserInterface {
    * uses the appropriate Library method for renewing books.
    */
   public void renewBooks() {
-		Book result;
-		int index = 1;
-		int index2 = 1;
-		String memberID;
-		String bookID;
-		HashMap memberMap = new HashMap();
-		for (Member member : library.memberList.members) {
-			System.out.println(index + ") " + member.name);
-			memberMap.put(index, member.id);
-			index += 1;
-		}
-		do {
-			String sequenceNumber = getToken("Enter member sequence number, or -1 to quit.");
-			if (sequenceNumber.equals("-1")) {
-				return;
-			}
-			memberID = (String) memberMap.get(Integer.parseInt(sequenceNumber));
-			if (library.searchMembership(memberID) == null) {
-				System.out.println("No such member, please try again!");
-			} else {
-				break;
-			}
+    Book result;
+    int index = 1;
+    int index2 = 1;
+    String memberID;
+    String bookID;
+    HashMap memberMap = new HashMap();
+    for (Member member : library.memberList.members) {
+      System.out.println(index + ") " + member.name);
+      memberMap.put(index, member.id);
+      index += 1;
+    }
+    do {
+      String sequenceNumber = getToken("Enter member sequence number, or -1 to quit.");
+      if (sequenceNumber.equals("-1")) {
+        return;
+      }
+      memberID = (String) memberMap.get(Integer.parseInt(sequenceNumber));
+      if (library.searchMembership(memberID) == null) {
+        System.out.println("No such member, please try again!");
+      } else {
+        break;
+      }
 
-		} while (true);
+    } while (true);
 
-		HashMap bookMap = new HashMap();
-		do {
-			index2 = 1;
-			for (Book book : library.catalog.books) {
-				if (book.borrowedBy == null) {
+    HashMap bookMap = new HashMap();
+    do {
+      index2 = 1;
+      for (Book book : library.catalog.books) {
+        if (book.borrowedBy == null) {
 
-				} else if (book.borrowedBy.equals(memberID) && !(book.hasHold())) {
-					System.out.println(index2 + ") " + book.title + " by " + book.author);
-					bookMap.put(index2, book.id);
-					index2 += 1;
-				}
+        } else if (book.borrowedBy.equals(memberID) && !(book.hasHold())) {
+          System.out.println(index2 + ") " + book.title + " by " + book.author);
+          bookMap.put(index2, book.id);
+          index2 += 1;
+        }
 
-			}
-			String sequenceNumber = getToken("Enter book sequence number, or -1 to quit.");
-			if (sequenceNumber.equals("-1")) {
-				return;
-			}
-			bookID = (String) bookMap.get(Integer.parseInt(sequenceNumber));
-			result = library.renewBook(bookID, memberID);
-			
-			if (result == null) {
-				System.out.println("null");
-				break;
-			}
-			else{
-				System.out.println(result.getTitle() + " " + result.getDueDate());
-			}
-			if (!yesOrNo("Renew more books?")) {
-				break;
-			} 
-		} while (true);
-	}
+      }
+      String sequenceNumber = getToken("Enter book sequence number, or -1 to quit.");
+      if (sequenceNumber.equals("-1")) {
+        return;
+      }
+      bookID = (String) bookMap.get(Integer.parseInt(sequenceNumber));
+      result = library.renewBook(bookID, memberID);
+
+      if (result == null) {
+        System.out.println("null");
+        break;
+      } else {
+        System.out.println(result.getTitle() + " " + result.getDueDate());
+      }
+      if (!yesOrNo("Renew more books?")) {
+        break;
+      }
+    } while (true);
+  }
 
   /**
    * Method to be called for returning books.
@@ -472,7 +473,7 @@ public class UserInterface {
         bookIndex += 1;
       }
     }
-    String bookID = getToken("Enter book id");
+    String bookID = getToken("Enter book sequence number");
     int duration = getNumber("Enter duration of hold");
     int result = library.placeHold(memberID, bookID, duration);
     switch (result) {
@@ -524,6 +525,16 @@ public class UserInterface {
    */
   public void processHolds() {
     Member result;
+    HashMap bookMap = new HashMap();
+    int bookIndex = 1;
+    for (Book book : library.catalog.books) {
+      if (book.hasHold()) {
+      } else {
+        System.out.println(bookIndex + ") " + book.title + " by " + book.author);
+        bookMap.put(bookIndex, book.id);
+        bookIndex += 1;
+      }
+    }
     do {
       String bookID = getToken("Enter book id");
       result = library.processHold(bookID);
