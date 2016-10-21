@@ -542,7 +542,7 @@ public void removeHold() {
 	    } while (true);
 	   
 	    do {
-	      bookIndex = 1;
+	      
 	      for (Book book : library.catalog.books) {
 	        if (!(book.hasHold())) {
 
@@ -558,9 +558,10 @@ public void removeHold() {
 	        return;
 	      }
 	      bookID = (String) bookMap.get(Integer.parseInt(sequenceNumber));
-	      System.out.println(memberID + " " + bookID);
+	      bookIndex = 1;
+	      //System.out.println(memberID + " " + bookID);
 	      result = library.removeHold(memberID, bookID);
-	      System.out.println(result);
+	     // System.out.println(result);
 	      switch (result) {
 	      case Library.BOOK_NOT_FOUND:
 	      System.out.println("No such Book in Library");
