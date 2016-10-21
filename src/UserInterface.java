@@ -288,40 +288,63 @@ public class UserInterface {
    * uses the appropriate Library method for renewing books.
    */
   public void renewBooks() {
-    Book result;
-    int index = 1;
-    String memberID;
-    HashMap memberMap = new HashMap();
-    for (Member member : library.memberList.members) {
-      System.out.println(index + ") " + member.name);
-      memberMap.put(index, member.id);
-      index += 1;
-    }
-    do {
-      String sequenceNumber = getToken("Enter member sequence number, or -1 to quit.");
-      if (sequenceNumber.equals("-1")) {
-        return;
-      }
-      memberID = (String) memberMap.get(Integer.parseInt(sequenceNumber));
-      if (library.searchMembership(memberID) == null) {
-        System.out.println("No such member, please try again!");
-      } else {
-        break;
-      }
-    } while (true);
-    Iterator issuedBooks = library.getBooks(memberID);
-    while (issuedBooks.hasNext()) {
-      Book book = (Book) (issuedBooks.next());
-      if (yesOrNo(book.getTitle())) {
-        result = library.renewBook(book.getId(), memberID);
-        if (result != null) {
-          System.out.println(result.getTitle() + "   " + result.getDueDate());
-        } else {
-          System.out.println("Book is not renewable");
-        }
-      }
-    }
-  }
+		Book result;
+		int index = 1;
+		int index2 = 1;
+		String memberID;
+		String bookID;
+		HashMap memberMap = new HashMap();
+		for (Member member : library.memberList.members) {
+			System.out.println(index + ") " + member.name);
+			memberMap.put(index, member.id);
+			index += 1;
+		}
+		do {
+			String sequenceNumber = getToken("Enter member sequence number, or -1 to quit.");
+			if (sequenceNumber.equals("-1")) {
+				return;
+			}
+			memberID = (String) memberMap.get(Integer.parseInt(sequenceNumber));
+			if (library.searchMembership(memberID) == null) {
+				System.out.println("No such member, please try again!");
+			} else {
+				break;
+			}
+
+		} while (true);
+
+		HashMap bookMap = new HashMap();
+		do {
+			index2 = 1;
+			for (Book book : library.catalog.books) {
+				if (book.borrowedBy == null) {
+
+				} else if (book.borrowedBy.equals(memberID) && !(book.hasHold())) {
+					System.out.println(index2 + ") " + book.title + " by " + book.author);
+					bookMap.put(index2, book.id);
+					index2 += 1;
+				}
+
+			}
+			String sequenceNumber = getToken("Enter book sequence number, or -1 to quit.");
+			if (sequenceNumber.equals("-1")) {
+				return;
+			}
+			bookID = (String) bookMap.get(Integer.parseInt(sequenceNumber));
+			result = library.renewBook(bookID, memberID);
+			
+			if (result == null) {
+				System.out.println("null");
+				break;
+			}
+			else{
+				System.out.println(result.getTitle() + " " + result.getDueDate());
+			}
+			if (!yesOrNo("Renew more books?")) {
+				break;
+			} 
+		} while (true);
+	}
 
   /**
    * Method to be called for returning books.
