@@ -250,7 +250,6 @@ public class UserInterface {
       try {
         memberID = (String) memberMap.get(Integer.parseInt(sequenceNumber));
       } catch (NumberFormatException exception) {
-        System.out.println("That is not a vaild sequence number.");
         memberID = null;
       }
       if (library.searchMembership(memberID) == null) {
@@ -262,8 +261,6 @@ public class UserInterface {
 
     HashMap bookMap = new HashMap();
     for (Book book : library.catalog.books) {
-      System.out.println("all books :");
-      System.out.println(book);
       if (book.borrowedBy == null) {
         System.out.println(index2 + ") " + book.title + " by " + book.author + " id = " + book.id);
         bookMap.put(index2, book.id);
@@ -306,7 +303,11 @@ public class UserInterface {
       if (sequenceNumber.equals("-1")) {
         return;
       }
-      memberID = (String) memberMap.get(Integer.parseInt(sequenceNumber));
+      try {
+        memberID = (String) memberMap.get(Integer.parseInt(sequenceNumber));
+      } catch (NumberFormatException exception) {
+        memberID = null;
+      }
       if (library.searchMembership(memberID) == null) {
         System.out.println("No such member, please try again!");
       } else {
@@ -332,7 +333,11 @@ public class UserInterface {
       if (sequenceNumber.equals("-1")) {
         return;
       }
-      bookID = (String) bookMap.get(Integer.parseInt(sequenceNumber));
+      try {
+        bookID = (String) bookMap.get(Integer.parseInt(sequenceNumber));
+      } catch (NumberFormatException exception) {
+        bookID = null;
+      }
       result = library.renewBook(bookID, memberID);
 
       if (result == null) {
@@ -390,6 +395,7 @@ public class UserInterface {
   public void removeBooks() {
     int result;
     int index = 1;
+    String bookID;
     HashMap bookMap = new HashMap();
     do {
       for (Book book : library.catalog.books) {
@@ -404,7 +410,11 @@ public class UserInterface {
       if (sequenceNumber.equals("-1")) {
         return;
       }
-      String bookID = (String) bookMap.get(Integer.parseInt(sequenceNumber));
+        try {
+          bookID = (String) bookMap.get(Integer.parseInt(sequenceNumber));
+        } catch (NumberFormatException exception) {
+          bookID = null;
+        }
       result = library.removeBook(bookID);
       switch (result) {
         case Library.BOOK_NOT_FOUND:
@@ -569,7 +579,11 @@ public class UserInterface {
       if (sequenceNumber.equals("-1")) {
         return;
       }
-      memberID = (String) memberMap.get(Integer.parseInt(sequenceNumber));
+      try {
+        memberID = (String) memberMap.get(Integer.parseInt(sequenceNumber));
+      } catch (NumberFormatException exception) {
+        memberID = null;
+      }
       if (library.searchMembership(memberID) == null) {
         System.out.println("No such member, please try again!");
       } else {
